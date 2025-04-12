@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:padding="16dp">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true">
+
+
+        <ImageButton
+            android:id="@+id/toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background= "@null"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/LoginBtn"
+            android:layout_centerInParent="true"
+            android:textSize="35dp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <View
+        android:id="@+id/upper_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/LoginBtn"
+        android:layout_below="@id/toolbar"
+        />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Enter your username"
+        android:drawableStart="@drawable/mail"
+        android:fontFamily="@font/montserrat_medium"
+        android:drawablePadding="25dp"
+        android:textSize="16dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/LoginBtn"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:layout_below="@id/upper_divider"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Enter your email"
+        android:drawableStart="@drawable/mail"
+        android:fontFamily="@font/montserrat_medium"
+        android:drawablePadding="25dp"
+        android:textSize="16dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/LoginBtn"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:layout_below="@id/et_username"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Password Input -->
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Enter your password"
+        android:drawableStart="@drawable/lock"
+        android:drawablePadding="25dp"
+        android:textSize="16dp"
+        android:inputType="textPassword"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/LoginBtn"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:layout_below="@id/et_email"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp" />
+
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="17dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/et_password"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="16dp" />
+
+    <!-- Sign Up Text -->
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account! Login"
+        android:layout_below="@id/btn_login"
+        android:fontFamily="@font/montserrat_medium"
+        android:textColor="@color/LoginBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- OR Divider -->
+    <View
+        android:id="@+id/or_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/LoginBtn"
+        android:layout_below="@id/tv_signup"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/LoginBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_signup"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/poppinsmedium"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <!-- Google Login Button -->
+    <Button
+        android:id="@+id/btn_google_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Sign in with Google"
+        android:drawableLeft="@drawable/google_svg"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_below="@id/tv_or"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/google_button_background"
+        android:textColor="@color/LoginBtn"
+        android:textSize="16dp"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/btn_apple_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Sign in with Apple"
+        android:fontFamily="@font/montserrat_medium"
+        android:drawableLeft="@drawable/apple_svg"
+        android:paddingLeft="15dp"
+        android:layout_below="@id/btn_google_login"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/google_button_background"
+        android:textColor="@color/LoginBtn"
+        android:textSize="16dp"
+        android:layout_centerInParent="true"
+        />
+
+
+</RelativeLayout>

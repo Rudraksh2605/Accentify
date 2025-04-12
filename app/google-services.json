@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "528995714820",
+    "project_id": "accentify-3283d",
+    "storage_bucket": "accentify-3283d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528995714820:android:f950f17055e9359265b251",
+        "android_client_info": {
+          "package_name": "com.developerspoint.accentify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528995714820-lrv7gag9mm6h766cbeqladfqofo307p6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developerspoint.accentify",
+            "certificate_hash": "339d4d74dc2b215d5ca748559d92f34216070ccd"
+          }
+        },
+        {
+          "client_id": "528995714820-kus9r9obekvq9usemb34p68p6enmdtsf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEORSUI-3W6UnleWmyvINFiXr02W0LjDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528995714820-kus9r9obekvq9usemb34p68p6enmdtsf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

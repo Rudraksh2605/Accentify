@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="text2">#221F1F</color>
+    <color name="LoginBtn">#141E42</color>
+    <color name="ok">#b5bcc2</color>
+    <color name="search">#C6C6C6</color>
+    <color name="search_inside">#fbfbfb</color>
+    <color name="tum_se_hi">#fafafa</color>
+    <color name="charlie">#e8f2f1</color>
+    <color name="cale">#1b998e</color>
+    <color name="splash">#189084</color>
+    <color name="blue">#407CE2</color>
+
+    <color name="forgot_pass">#141C41</color>
+
 </resources>

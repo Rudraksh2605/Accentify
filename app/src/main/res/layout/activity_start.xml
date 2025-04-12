@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@drawable/gradient"
+    android:layout_height="match_parent"
+    tools:context=".auth.Start">
+
+    <!-- Central container to vertically center the content -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <!-- Logo -->
+
+        <!-- Text 1 -->
+        <ImageView
+            android:id="@+id/Logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Let's get started!"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_semibold" />
+
+        <!-- Text 2 -->
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Login to stay Healthy and Fit"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_medium" />
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Login"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_medium"
+            android:background="@drawable/outline_white_start"
+            />
+
+        <!-- Sign Up Button -->
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/outline_white_start"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center" />
+    </LinearLayout>
+
+</RelativeLayout>
