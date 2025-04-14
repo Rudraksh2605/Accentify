@@ -15,4 +15,18 @@
 
     <color name="forgot_pass">#141C41</color>
 
+    <color name="difficulty_beginner">#4CAF50</color>
+    <color name="difficulty_intermediate">#FFC107</color>
+    <color name="difficulty_advanced">#F44336</color>
+    <color name="xp_orange">#FF9800</color>
+    <color name="premium_gold">#FFD700</color>
+    <color name="border_gray">#E0E0E0</color>
+
+    <color name="gray">#757575</color>
+    <color name="cardBackground">#FAFAFA</color>
+    <color name="cardBorder">#EEEEEE</color>
+    <color name="primaryColor">#4285F4</color>
+    <color name="beginnerColor">#34A853</color>
+    <color name="premiumColor">#FBBC05</color>
+
 </resources>

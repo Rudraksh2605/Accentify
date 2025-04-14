@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">PixSense</string>
     <string name="default_web_client_id">YOUR_WEB_CLIENT_ID</string>
+
+    <string name="premium">PREMIUM</string>
+    <string name="lessons">Lessons</string>
+    <string name="xp_points">XP Points</string>
+    <string name="start_course">Start Course</string>
+    <string name="course_icon">Course icon</string>
+
+    <string name="duration_format">%d min</string>
+    <string name="xp_format">%d XP</string>
 </resources>

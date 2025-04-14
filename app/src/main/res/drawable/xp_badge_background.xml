@@ -1,0 +1,6 @@
+<!-- res/drawable/xp_badge_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#20FF9800"/> <!-- 20% opacity of xp_orange -->
+    <corners android:radius="12dp"/>
+    <stroke android:width="0.5dp" android:color="@color/xp_orange"/>
+</shape>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lessons.Lessons">
+
+    <Toolbar
+        android:id="@+id/upper_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Courses"
+                android:textSize="35sp"
+                android:gravity="center"
+                android:textColor="@color/LoginBtn"
+                android:fontFamily="@font/montserrat_semibold" />
+        </LinearLayout>
+    </Toolbar>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/upper_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/LoginBtn"
+        app:dividerThickness="1dp"
+        android:layout_below="@id/upper_toolbar" />
+
+
+
+    <ScrollView
+        android:layout_below="@+id/upper_divider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Course Header Section -->
+            <RelativeLayout
+                android:id="@+id/headerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/courseIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/course"
+                    android:contentDescription="@string/course_icon"
+                    android:layout_marginEnd="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/courseIcon"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/courseTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:hint="N.A."
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColor="@color/LoginBtn"
+                        tools:text="Spanish for Beginners"/>
+
+
+
+                    <TextView
+                        android:id="@+id/courseDifficulty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:paddingVertical="4dp"
+                        android:hint="N.A."
+                        android:background="@drawable/difficuly_badge_beginner"
+                        android:textColor="@color/white"
+                        tools:text="Beginner"/>
+                </LinearLayout>
+
+                <!-- Premium Badge (conditionally visible) -->
+                <TextView
+                    android:id="@+id/premiumBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/premium"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:background="@drawable/premium_badge"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+
+            <!-- Course Description -->
+            <TextView
+                android:id="@+id/courseDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headerLayout"
+                android:fontFamily="@font/montserrat_light"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="24dp"
+                tools:text="Learn basic Spanish vocabulary and phrases"/>
+
+            <!-- Course Stats Cards -->
+            <LinearLayout
+                android:id="@+id/statsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/courseDescription"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    android:padding="12dp"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lessons"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textSize="14sp"
+                        android:textColor="@color/LoginBtn"/>
+
+                    <TextView
+                        android:id="@+id/totalLessons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:hint="N.A."
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:layout_marginTop="4dp"
+                        tools:text="3"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@drawable/card_background"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xp_points"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:textColor="@color/LoginBtn"/>
+
+                    <TextView
+                        android:id="@+id/totalXp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"
+                        android:hint="N.A."
+                        android:fontFamily="@font/montserrat_semibold"
+                        tools:text="500"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Start Button -->
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/statsLayout"
+                android:text="@string/start_course"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingVertical="12dp"
+                android:background="@drawable/button_primary"
+                android:textColor="@color/white"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lesson_recycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/startButton"
+                android:layout_margin="15dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@+id/lesson_recycle"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bottom_nav"
+        layout="@layout/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"/>
+
+</RelativeLayout>

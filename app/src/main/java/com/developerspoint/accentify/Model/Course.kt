@@ -12,3 +12,4 @@ data class Course(
     val isPremium: Boolean = false,
     val order: Int = 0
 )
+

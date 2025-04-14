@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.developerspoint.accentify.R
-import com.developerspoint.accentify.Home.NavBar
+import com.developerspoint.accentify.NavBar.NavBar
 import java.text.SimpleDateFormat
 import java.util.Locale
 

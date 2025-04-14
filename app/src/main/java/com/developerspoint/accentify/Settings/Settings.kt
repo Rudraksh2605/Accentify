@@ -16,7 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.developerspoint.accentify.Auth.Login
-import com.developerspoint.accentify.Home.NavBar
+import com.developerspoint.accentify.NavBar.NavBar
 import com.developerspoint.accentify.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

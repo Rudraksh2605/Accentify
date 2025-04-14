@@ -13,28 +13,32 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Settings.Settings"
-            android:exported="false">
-
+            android:name=".Lessons.Lessons"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Course.CourseActivity"
+            android:exported="true">
 
+        </activity>
+        <activity
+            android:name=".Settings.Settings"
+            android:exported="false">
 
         </activity>
         <activity
             android:name=".Auth.Start"
             android:exported="true">
 
-
         </activity>
         <activity
             android:name=".Home.Home"
             android:exported="true">
-
-
 
         </activity>
         <activity
