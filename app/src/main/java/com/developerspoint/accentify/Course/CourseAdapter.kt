@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.developerspoint.accentify.Lessons.Lessons
 import com.developerspoint.accentify.Model.Course
+import com.developerspoint.accentify.Questions.QuestionActivity
 import com.developerspoint.accentify.R
 
 class CourseAdapter(private var courseList: List<Course>) :

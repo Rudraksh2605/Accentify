@@ -1,0 +1,8 @@
+<!-- toolbar_shadow.xml in drawable folder -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="#11000000"
+        android:endColor="@android:color/transparent"
+        android:angle="90"/>
+</shape>
+

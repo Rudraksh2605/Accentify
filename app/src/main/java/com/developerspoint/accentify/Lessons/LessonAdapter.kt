@@ -43,6 +43,5 @@ class LessonAdapter(
         }
     }
 
-
     override fun getItemCount(): Int = lessons.size
 }

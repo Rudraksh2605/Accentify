@@ -2,7 +2,7 @@ package com.developerspoint.accentify.Model
 
 data class Question(
     val id: String = "",
-    val type: String = "mcq", // you can extend this to support other types
+    val type: String = "mcq",
     val questionText: String = "",
     val options: List<String> = emptyList(),
     val correctAnswer: Int = 0,

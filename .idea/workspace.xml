@@ -7,6 +7,11 @@
       </config>
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/button_background.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/button_outline.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
@@ -82,6 +87,11 @@
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_difficulty.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
@@ -108,6 +118,21 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_xp.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/option_background.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/option_background_selected.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/option_background_unselected.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
         </config>
@@ -152,6 +177,11 @@
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/toolbar_shadow.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/xp_badge_background.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
@@ -175,6 +205,11 @@
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
         <config>
           <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_question.xml">
+        <config>
+          <theme>@style/Theme.MaterialComponents.DayNight.NoActionBar</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
@@ -231,17 +266,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Home/Home.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Home/NavBar.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Model/Course.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Model/Course.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Settings/Settings.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Settings/Settings.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bottom_nav.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bottom_nav.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Course/CourseAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Course/CourseAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Lessons/LessonAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Lessons/LessonAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Lessons/Lessons.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Lessons/Lessons.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Model/Question.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Model/Question.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +283,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\rudra\.android\avd\Pixel_8_API_UpsideDownCakePrivacySandbox.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RZ8N313VD4W)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -339,6 +371,9 @@
       <recent name="C:\Users\rudra\OneDrive\Documents\GitHub\Accentify\app\src\main\java\com\developerspoint\accentify\Auth" />
       <recent name="C:\Users\rudra\OneDrive\Documents\GitHub\Accentify\app\src\main\res\layout" />
       <recent name="C:\Users\rudra\OneDrive\Documents\GitHub\Accentify\app" />
+    </key>
+    <key name="android.template.404375933">
+      <recent name="com.developerspoint.accentify.Questions" />
     </key>
     <key name="android.template.1486521584">
       <recent name="com.developerspoint.accentify.Lessons" />
@@ -482,12 +517,12 @@
       <map>
         <entry key="com.developerspoint.accentify">
           <value>
-            <CheckInfo lastCheckTimestamp="1744607864134" />
+            <CheckInfo lastCheckTimestamp="1744893097888" />
           </value>
         </entry>
         <entry key="com.developerspoint.accentify.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1744607864172" />
+            <CheckInfo lastCheckTimestamp="1744893097880" />
           </value>
         </entry>
       </map>
