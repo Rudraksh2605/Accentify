@@ -1,5 +1,6 @@
 package com.developerspoint.accentify.Questions
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.developerspoint.accentify.Model.Question
 import com.developerspoint.accentify.R
+import com.developerspoint.accentify.Result.QuizResultActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
 class QuestionActivity : AppCompatActivity() {
@@ -21,6 +23,8 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var submitButton: Button
     private lateinit var explanationCard: CardView
     private lateinit var explanationTextView: TextView
+    private lateinit var progressBar: ProgressBar
+
 
     private lateinit var optionCards: List<CardView>
     private lateinit var options: List<RadioButton>
@@ -64,6 +68,8 @@ class QuestionActivity : AppCompatActivity() {
         submitButton = findViewById(R.id.submitButton)
         explanationCard = findViewById(R.id.explanationCard)
         explanationTextView = findViewById(R.id.explanationTextView)
+        progressBar = findViewById(R.id.progressBar)
+
 
         optionCards = listOf(
             findViewById(R.id.optionCard0),
@@ -106,6 +112,17 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun loadAllQuestions() {
+        progressBar.visibility = View.VISIBLE  // 👈 Show loading
+
+        val courseId = intent.getStringExtra("courseId") ?: ""
+        val lessonId = intent.getStringExtra("lessonId") ?: ""
+
+        if (courseId.isEmpty() || lessonId.isEmpty()) {
+            Toast.makeText(this, "Invalid course or lesson!", Toast.LENGTH_SHORT).show()
+            progressBar.visibility = View.GONE
+            return
+        }
+
         db.collection("courses")
             .document(courseId)
             .collection("lessons")
@@ -113,6 +130,10 @@ class QuestionActivity : AppCompatActivity() {
             .collection("questions")
             .get()
             .addOnSuccessListener { documents ->
+                progressBar.visibility = View.GONE  // 👈 Hide loading
+
+                questionList.clear()  // 👈 Clear previous questions if any
+
                 for (doc in documents) {
                     val question = Question(
                         questionText = doc.getString("questionText") ?: "",
@@ -123,14 +144,19 @@ class QuestionActivity : AppCompatActivity() {
                     )
                     questionList.add(question)
                 }
+
                 if (questionList.isNotEmpty()) {
+                    currentQuestionIndex = 0
                     displayQuestion()
                 } else {
-                    Toast.makeText(this, "No questions found!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "No questions found in this lesson!", Toast.LENGTH_SHORT).show()
+                    finish()  // 👈 Close activity if no questions
                 }
             }
-            .addOnFailureListener {
-                Toast.makeText(this, "Failed to load questions!", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener { e ->
+                progressBar.visibility = View.GONE
+                Toast.makeText(this, "Error loading questions: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
+                finish()
             }
     }
 
@@ -177,8 +203,17 @@ class QuestionActivity : AppCompatActivity() {
         if (currentQuestionIndex < questionList.size) {
             displayQuestion()
         } else {
-            Toast.makeText(this, "Quiz completed!", Toast.LENGTH_LONG).show()
+            // Calculate total XP earned
+            val totalXp = questionList.sumOf { it.xpValue }
+
+            // Create an Intent to go to the result activity
+            val intent = Intent(this, QuizResultActivity::class.java)
+            intent.putExtra("totalXp", totalXp)  // Pass total XP
+            intent.putExtra("totalQuestions", questionList.size)  // Pass total questions
+            startActivity(intent)
             finish()
         }
     }
+
+
 }

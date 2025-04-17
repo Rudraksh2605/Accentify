@@ -12,13 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+
+        <activity
+            android:name=".Result.QuizResultActivity"
+            android:exported="true">
+
+        </activity>
+
         <activity
             android:name=".Questions.QuestionActivity"
             android:exported="true">
 
         </activity>
-
-
         <activity
             android:name=".Lessons.Lessons"
             android:exported="true">
@@ -38,19 +43,15 @@
             android:name=".Auth.Start"
             android:exported="true">
 
-
-
         </activity>
         <activity
             android:name=".Home.Home"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".Auth.SignUp"

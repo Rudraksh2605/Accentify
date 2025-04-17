@@ -38,4 +38,20 @@
     <color name="gray_700">#616161</color>
     <color name="green_500">#4CAF50</color>
 
+    <!-- New colors to add -->
+    <color name="light_gray">#F5F5F5</color>
+    <color name="dark_gray">#424242</color>
+    <color name="green">#4CAF50</color>
+    <color name="gold">#FFD700</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="lightBackground">#FAFAFA</color>
+    <color name="secondaryText">#757575</color>
+    <color name="primaryText">#212121</color>
+    <color name="success_green">#388E3C</color>
+    <color name="info_blue">#1976D2</color>
+    <color name="divider_gray">#E0E0E0</color>
+    <color name="button_pressed">#E3F2FD</color>
+    <color name="progress_background">#E0E0E0</color>
+    <color name="progress_foreground">#4CAF50</color>
+
 </resources>
