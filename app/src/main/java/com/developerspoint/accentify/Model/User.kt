@@ -8,5 +8,7 @@ data class User(
     val totalXP: Int = 0,
     val selectedLanguage: String = "",
     val preferences: Preferences = Preferences(),
-    val languageProgress: Map<String, LanguageProgress> = emptyMap()
+    val languageProgress: Map<String, LanguageProgress> = emptyMap(),
+    val lastOpenedDate: String = ""
+
 )
