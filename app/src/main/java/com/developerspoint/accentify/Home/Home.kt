@@ -1,13 +1,16 @@
 package com.developerspoint.accentify.Home
 
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.developerspoint.accentify.ChatBot.ChatBot
 import com.developerspoint.accentify.R
 import com.developerspoint.accentify.NavBar.NavBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -19,6 +22,8 @@ class Home : AppCompatActivity() {
     private lateinit var db: FirebaseFirestore
     private var userId: String? = null
     private lateinit var streakTxt: TextView
+    private lateinit var chatbotFab: FloatingActionButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,12 @@ class Home : AppCompatActivity() {
         navBar()
         date_time()
         fetchAndUpdateUserStreak()
+        chatbotFab = findViewById(R.id.chatbot_fab)
+
+
+        chatbotFab.setOnClickListener {
+            navigateToChatBot()
+        }
     }
 
     private fun navBar() {
@@ -124,5 +135,10 @@ class Home : AppCompatActivity() {
             e.printStackTrace()
             0L
         }
+    }
+
+    private fun navigateToChatBot() {
+        val intent = Intent(this, ChatBot::class.java)
+        startActivity(intent)
     }
 }
