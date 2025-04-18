@@ -2,6 +2,7 @@ package com.developerspoint.accentify.ChatBot
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,8 @@ import com.developerspoint.accentify.Model.ChatRequest
 import com.developerspoint.accentify.Model.ChatResponse
 import com.developerspoint.accentify.R
 import com.developerspoint.accentify.databinding.ActivityChatBotBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,9 +20,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
-
-
 
 class ChatBot : AppCompatActivity() {
 
@@ -34,6 +34,13 @@ class ChatBot : AppCompatActivity() {
 
         setupRetrofit()
         setupViews()
+
+        val chatDocId = intent.getStringExtra("chatDocId")
+        if (chatDocId != null) {
+            loadOldChat(chatDocId)
+            binding.messageEditText.visibility = View.GONE
+            binding.sendButton.visibility = View.GONE
+        }
     }
 
     private fun setupRetrofit() {
@@ -43,7 +50,7 @@ class ChatBot : AppCompatActivity() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://accentify-bot.onrender.com/")
+            .baseUrl("https://accentify-bot.onrender.com/") // Change this to your bot's API URL
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -81,6 +88,7 @@ class ChatBot : AppCompatActivity() {
                 if (response.isSuccessful) {
                     response.body()?.let { chatResponse ->
                         handleChatResponse(chatResponse)
+                        saveChatHistory(text, chatResponse.translation)
                     }
                 } else {
                     Toast.makeText(
@@ -106,7 +114,55 @@ class ChatBot : AppCompatActivity() {
     private fun handleChatResponse(response: ChatResponse) {
         val botMessage = "${response.translation}\n\nExample: ${response.example}"
         chatAdapter.addMessage(botMessage, false)
+    }
 
+    private fun saveChatHistory(userMessage: String, botMessage: String) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+        if (userId == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val sessionTitle = "Session_${System.currentTimeMillis()}"
+
+        val chatHistory = hashMapOf(
+            "title" to sessionTitle,
+            "userMessage" to userMessage,
+            "botMessage" to botMessage,
+            "timestamp" to System.currentTimeMillis()
+        )
+
+        FirebaseFirestore.getInstance().collection("users")
+            .document(userId)
+            .collection("chatHistory")
+            .add(chatHistory)
+
+    }
+
+    private fun loadOldChat(chatDocId: String) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        if (userId != null) {
+            FirebaseFirestore.getInstance().collection("users")
+                .document(userId)
+                .collection("chatHistory")
+                .document(chatDocId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val userMessage = document.getString("userMessage") ?: ""
+                        val botMessage = document.getString("botMessage") ?: ""
+
+                        chatAdapter.addMessage(userMessage, true)  // user's old message
+                        chatAdapter.addMessage(botMessage, false) // bot's old reply
+                    } else {
+                        Toast.makeText(this, "Chat not found", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to load chat", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 
     override fun onDestroy() {

@@ -25,6 +25,8 @@ class Home : AppCompatActivity() {
     private lateinit var streakTxt: TextView
     private lateinit var chatbotFab: FloatingActionButton
     private lateinit var start_chat: Button
+    private var recentChatDocIds = mutableListOf<String>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +51,24 @@ class Home : AppCompatActivity() {
         start_chat.setOnClickListener {
             navigateToChatBot()
         }
+
+        fetchRecentChats()
+
+        val resume1 = findViewById<TextView>(R.id.resume_1)
+        val resume2 = findViewById<TextView>(R.id.resume_2)
+
+        resume1.setOnClickListener {
+            val intent = Intent(this, ChatBot::class.java)
+            intent.putExtra("chatDocId", "mUMAMQsyKu7H5OB9YCr1") // Pass the document ID
+            startActivity(intent)
+        }
+
+        resume2.setOnClickListener {
+            val intent = Intent(this, ChatBot::class.java)
+            intent.putExtra("chatDocId", "anotherDocId") // Put another doc id
+            startActivity(intent)
+        }
+
     }
 
     private fun navBar() {
@@ -147,4 +167,71 @@ class Home : AppCompatActivity() {
         val intent = Intent(this, ChatBot::class.java)
         startActivity(intent)
     }
+
+    private fun fetchRecentChats() {
+        userId?.let { id ->
+            db.collection("users")
+                .document(id)
+                .collection("chatHistory")
+                .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener { documents ->
+                    val chatNumberTextView = findViewById<TextView>(R.id.chat_number)
+                    val totalChats = documents.size()
+                    chatNumberTextView?.text = totalChats.toString()
+
+                    if (!documents.isEmpty) {
+                        val chats = documents.documents
+                        recentChatDocIds.clear()
+
+                        if (chats.size >= 1) {
+                            val chat1 = chats[0]
+                            findViewById<TextView>(R.id.chat_title_1)?.text = chat1.getString("title") ?: "No Title"
+                            findViewById<TextView>(R.id.chat_time_1)?.text = formatTimestamp(chat1.getLong("timestamp"))
+
+                            recentChatDocIds.add(chat1.id)
+
+                            findViewById<TextView>(R.id.resume_1)?.setOnClickListener {
+                                val intent = Intent(this, ChatBot::class.java)
+                                intent.putExtra("chatDocId", chat1.id)
+                                startActivity(intent)
+                            }
+                        }
+
+                        if (chats.size >= 2) {
+                            val chat2 = chats[1]
+                            findViewById<TextView>(R.id.chat_title_2)?.text = chat2.getString("title") ?: "No Title"
+                            findViewById<TextView>(R.id.chat_time_2)?.text = formatTimestamp(chat2.getLong("timestamp"))
+
+                            recentChatDocIds.add(chat2.id)
+
+                            findViewById<TextView>(R.id.resume_2)?.setOnClickListener {
+                                val intent = Intent(this, ChatBot::class.java)
+                                intent.putExtra("chatDocId", chat2.id)
+                                startActivity(intent)
+                            }
+                        }
+                    } else {
+                        android.util.Log.d("RecentChatFetch", "No chats found.")
+                    }
+                }
+                .addOnFailureListener { error ->
+                    error.printStackTrace()
+                    android.util.Log.e("RecentChatFetch", "Failed to fetch chats: ${error.message}")
+                    Toast.makeText(this, "Failed to fetch recent chats.", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    private fun formatTimestamp(timestamp: Long?): String {
+        return if (timestamp != null) {
+            val date = java.util.Date(timestamp)
+            val format = java.text.SimpleDateFormat("dd/MM/yyyy HH:mm", java.util.Locale.getDefault())
+            format.format(date)
+        } else {
+            "Unknown Time"
+        }
+    }
+
+
 }

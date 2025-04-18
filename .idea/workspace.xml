@@ -339,13 +339,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a545c25e-098f-43ae-a5d3-918c91a24b00" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/ChatBot/ChatBot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/ChatBot/ChatBot.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Home/Home.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/NavBar/NavBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/NavBar/NavBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Questions/QuestionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Questions/QuestionActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Result/QuestionActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/developerspoint/accentify/Result/QuestionActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_quiz_result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_quiz_result.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/bottom_nav.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/bottom_nav.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,6 +420,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Android App.app.executor": "Run",
+    "BundleExportedModule": "Accentify.app",
     "Gradle.Accentify [signingReport].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",

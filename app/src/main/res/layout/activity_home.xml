@@ -155,6 +155,7 @@
                         android:padding="8dp">
 
                         <TextView
+                            android:id="@+id/chat_number"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -255,14 +256,6 @@
                 android:textColor="@color/LoginBtn"
                 android:textSize="24sp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/recent_act_txt"
-                android:layout_margin="15dp"
-                />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/temp_card"
                 android:layout_width="350dp"
@@ -290,7 +283,7 @@
                         android:layout_margin="8dp">
 
                         <TextView
-                            android:id="@+id/time_stamp_chat"
+                            android:id="@+id/chat_time_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2 hours"
@@ -300,6 +293,7 @@
                             android:textSize="18sp"/>
 
                         <TextView
+                            android:id="@+id/resume_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Resume"
@@ -315,6 +309,7 @@
 
 
                     <TextView
+                        android:id="@+id/chat_title_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Discussion about renewable energy source.."
@@ -353,7 +348,7 @@
                         android:layout_margin="8dp">
 
                         <TextView
-                            android:id="@+id/time_stamp_chat_2"
+                            android:id="@+id/chat_time_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2 hours"
@@ -363,6 +358,7 @@
                             android:textSize="18sp"/>
 
                         <TextView
+                            android:id="@+id/resume_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Resume"
@@ -378,6 +374,7 @@
 
 
                     <TextView
+                        android:id="@+id/chat_title_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Discussion about renewable energy source.."
