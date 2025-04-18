@@ -1,8 +1,10 @@
 package com.developerspoint.accentify.ChatBot
 
+import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +16,18 @@ import java.util.*
 
 class ChatAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
     private val messages = mutableListOf<ChatMessage>()
+    private var textToSpeech: TextToSpeech? = null
+
+    init {
+        textToSpeech = TextToSpeech(recyclerView.context) { status ->
+            if (status != TextToSpeech.ERROR) {
+                textToSpeech?.language = Locale.getDefault()
+            }
+        }
+    }
 
     fun addMessage(text: String, isUser: Boolean) {
-        val message = ChatMessage(text, isUser, System.currentTimeMillis()) // Add timestamp
+        val message = ChatMessage(text, isUser, System.currentTimeMillis())
         messages.add(message)
         notifyItemInserted(messages.size - 1)
         scrollToBottom()
@@ -55,6 +66,7 @@ class ChatAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter
         private val messageText: TextView = itemView.findViewById(R.id.messageText)
         private val timeText: TextView = itemView.findViewById(R.id.timeText)
         private val messageContainer: LinearLayout = itemView.findViewById(R.id.messageContainer)
+        private val speakerButton: ImageView? = itemView.findViewById(R.id.speakerButton)
 
         fun bind(message: ChatMessage) {
             messageText.text = message.text
@@ -68,7 +80,26 @@ class ChatAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter
                 R.drawable.bot_message_bg
             }
             messageContainer.setBackgroundResource(backgroundResource)
+
+            // Speaker button functionality
+            if (!message.isUser) {
+                speakerButton?.visibility = View.VISIBLE
+                speakerButton?.setOnClickListener {
+                    speakMessage(message.text)
+                }
+            } else {
+                speakerButton?.visibility = View.GONE
+            }
         }
+    }
+
+    private fun speakMessage(text: String) {
+        textToSpeech?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+    fun shutdown() {
+        textToSpeech?.stop()
+        textToSpeech?.shutdown()
     }
 
     companion object {

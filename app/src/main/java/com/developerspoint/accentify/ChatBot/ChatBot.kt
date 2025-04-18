@@ -110,6 +110,7 @@ class ChatBot : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        chatAdapter.shutdown()
         super.onDestroy()
     }
 }
