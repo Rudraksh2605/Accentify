@@ -4,6 +4,7 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ class Home : AppCompatActivity() {
     private var userId: String? = null
     private lateinit var streakTxt: TextView
     private lateinit var chatbotFab: FloatingActionButton
+    private lateinit var start_chat: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +40,13 @@ class Home : AppCompatActivity() {
         date_time()
         fetchAndUpdateUserStreak()
         chatbotFab = findViewById(R.id.chatbot_fab)
+        start_chat = findViewById(R.id.ready_to_chat_btn)
 
 
         chatbotFab.setOnClickListener {
+            navigateToChatBot()
+        }
+        start_chat.setOnClickListener {
             navigateToChatBot()
         }
     }

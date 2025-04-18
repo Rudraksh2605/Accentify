@@ -32,6 +32,9 @@ class QuestionActivity : AppCompatActivity() {
     private lateinit var optionCards: List<CardView>
     private lateinit var options: List<RadioButton>
 
+    private val answerStatusList = mutableListOf<Boolean>() // true = correct, false = wrong
+
+
     private val db = FirebaseFirestore.getInstance()
 
     private var questionList = mutableListOf<Question>()
@@ -271,14 +274,16 @@ class QuestionActivity : AppCompatActivity() {
         submitButton.text = "Next Question"
         isAnswerSubmitted = true
 
-        // Highlight the correct answer (green border)
         optionCards[currentQuestion.correctAnswer].setBackgroundResource(R.drawable.option_background_correct)
 
-        // If user selected wrong answer, highlight it (red border)
-        if (selectedOptionIndex != -1 && selectedOptionIndex != currentQuestion.correctAnswer) {
+        val isCorrect = selectedOptionIndex == currentQuestion.correctAnswer
+        answerStatusList.add(isCorrect)
+
+        if (selectedOptionIndex != -1 && !isCorrect) {
             optionCards[selectedOptionIndex].setBackgroundResource(R.drawable.option_background_incorrect)
         }
     }
+
 
     private fun goToNextQuestion() {
         tts.stop()
@@ -291,10 +296,12 @@ class QuestionActivity : AppCompatActivity() {
             val intent = Intent(this, QuizResultActivity::class.java)
             intent.putExtra("totalXp", totalXp)
             intent.putExtra("totalQuestions", questionList.size)
+            intent.putExtra("answerStatusList", ArrayList(answerStatusList)) // Pass the list!
             startActivity(intent)
             finish()
         }
     }
+
 
     override fun onPause() {
         super.onPause()

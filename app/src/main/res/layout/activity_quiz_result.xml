@@ -9,7 +9,6 @@
     android:background="@color/light_gray"
     android:padding="24dp">
 
-    <!-- Celebration container -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,10 +31,9 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/dark_gray"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="@font/montserrat_semibold"/>
     </LinearLayout>
 
-    <!-- Score container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +50,7 @@
             android:text="8 out of 10 correct"
             android:textSize="18sp"
             android:textColor="@color/dark_gray"
-            android:fontFamily="sans-serif"/>
+            android:fontFamily="@font/montserrat_medium"/>
 
         <TextView
             android:id="@+id/xpEarnedTextView"
@@ -62,7 +60,7 @@
             android:text="+200 XP Earned"
             android:textSize="18sp"
             android:textColor="@color/green"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="@font/montserrat_medium"/>
 
         <!-- Progress bar -->
         <ProgressBar
@@ -90,10 +88,11 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/dark_gray"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="@font/montserrat_medium"/>
 
-        <!-- Correct answers -->
+
         <LinearLayout
+            android:id="@+id/correctAnswersLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -107,25 +106,17 @@
                 app:tint="@color/green" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="8 correct answers"
-                android:textSize="14sp"
-                android:textColor="@color/dark_gray"
-                android:fontFamily="sans-serif"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="+160 XP"
-                android:textSize="14sp"
-                android:textColor="@color/green"
-                android:fontFamily="sans-serif-medium"/>
+                android:id="@+id/correctAnswersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="8 correct answers"
+            android:textSize="14sp"
+            android:textColor="@color/dark_gray"
+            android:fontFamily="@font/montserrat_light"/>
         </LinearLayout>
 
-        <!-- Completion bonus -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +137,7 @@
                 android:text="Completion bonus"
                 android:textSize="14sp"
                 android:textColor="@color/dark_gray"
-                android:fontFamily="sans-serif"/>
+                android:fontFamily="@font/montserrat_light"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,7 +146,7 @@
                 android:text="+40 XP"
                 android:textSize="14sp"
                 android:textColor="@color/blue"
-                android:fontFamily="sans-serif-medium"/>
+                android:fontFamily="@font/montserrat_light"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -168,20 +159,13 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/reviewButton"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:text="Review"
-            android:textColor="@color/dark_gray"
-            android:background="@drawable/rounded_outline_button"
-            android:layout_marginEnd="16dp"/>
-
-        <Button
             android:id="@+id/finishButton"
             android:layout_width="120dp"
             android:layout_height="48dp"
             android:text="Finish"
             android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_semibold"
             android:background="@drawable/rounded_green_button"/>
     </LinearLayout>
+
 </LinearLayout>

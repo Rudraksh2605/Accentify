@@ -1,6 +1,7 @@
 package com.developerspoint.accentify.Result
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -16,17 +17,25 @@ class QuizResultActivity : AppCompatActivity() {
         val scoreTextView: TextView = findViewById(R.id.scoreTextView)
         val xpEarnedTextView: TextView = findViewById(R.id.xpEarnedTextView)
         val xpProgress: ProgressBar = findViewById(R.id.xpProgress)
-        val reviewButton: Button = findViewById(R.id.reviewButton)
         val finishButton: Button = findViewById(R.id.finishButton)
+        val correctAnswersTextView: TextView = findViewById(R.id.correctAnswersTextView)
 
-        val totalXp = intent.getIntExtra("totalXp", 0)
         val totalQuestions = intent.getIntExtra("totalQuestions", 0)
+        val answerStatusList = intent.getSerializableExtra("answerStatusList") as? ArrayList<Boolean> ?: arrayListOf()
+
+        Log.d("QuizResultActivity", "Received answerStatusList: $answerStatusList")
+
+        val correctAnswers = answerStatusList.count { it }
+
+        val xpPerQuestion = 20
+        val totalCorrectXp = correctAnswers * xpPerQuestion
 
         resultTextView.text = "Quiz Completed!"
-        scoreTextView.text = "$totalQuestions out of $totalQuestions correct"
-        xpEarnedTextView.text = "+$totalXp XP Earned"
+        scoreTextView.text = "$correctAnswers out of $totalQuestions correct"
+        correctAnswersTextView.text = "$correctAnswers correct answers"  // Update this dynamically
+        xpEarnedTextView.text = "+$totalCorrectXp XP Earned"
 
-        val progress = (totalXp / (totalQuestions * 100.0) * 100).toInt()
+        val progress = if (totalQuestions > 0) (correctAnswers * 100) / totalQuestions else 0
         xpProgress.progress = progress
 
         finishButton.setOnClickListener {
