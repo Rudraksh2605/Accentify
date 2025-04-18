@@ -25,7 +25,6 @@ class ChatBot : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBotBinding
     private lateinit var chatAdapter: ChatAdapter
-    private lateinit var mediaPlayer: MediaPlayer
     private lateinit var chatApiService: ChatApiService
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,34 +107,9 @@ class ChatBot : AppCompatActivity() {
         val botMessage = "${response.translation}\n\nExample: ${response.example}"
         chatAdapter.addMessage(botMessage, false)
 
-        playAudio(response.audio_url)
-    }
-
-    private fun playAudio(audioPath: String) {
-        try {
-            if (::mediaPlayer.isInitialized) {
-                mediaPlayer.release()
-            }
-
-            val audioUrl = "https://your-service-name.onrender.com$audioPath" // TODO: Full audio URL
-            mediaPlayer = MediaPlayer().apply {
-                setDataSource(audioUrl)
-                prepareAsync()
-                setOnPreparedListener { start() }
-                setOnErrorListener { _, _, _ ->
-                    Toast.makeText(this@ChatBot, "Error playing audio", Toast.LENGTH_SHORT).show()
-                    false
-                }
-            }
-        } catch (e: Exception) {
-            Toast.makeText(this, "Audio error: ${e.message}", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onDestroy() {
-        if (::mediaPlayer.isInitialized) {
-            mediaPlayer.release()
-        }
         super.onDestroy()
     }
 }
