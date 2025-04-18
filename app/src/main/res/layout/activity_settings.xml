@@ -76,6 +76,7 @@
 
                     <!-- Profile Picture -->
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_profile_pic"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginEnd="16dp"
@@ -229,102 +230,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/Language_txt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pic_name"
-                android:text="Language Setting"
-                android:layout_margin="15dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:textSize="20sp"
-                android:textColor="@color/LoginBtn"/>
-
-            <LinearLayout
-                android:id="@+id/lang_car_select"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_below="@+id/Language_txt">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:layout_marginBottom="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="English"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:gravity="center"
-                            android:textSize="16sp"
-                            android:textColor="@color/LoginBtn"/>
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/down"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/right"
-                    android:layout_gravity="center"/>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="8dp"
-                    android:layout_margin="15dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="French"
-                            android:gravity="center"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:textSize="16sp"
-                            android:textColor="@color/LoginBtn"/>
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/down"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/learning_pref_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lang_car_select"
+                android:layout_below="@+id/pic_name"
                 android:text="Learning Preferences"
                 android:layout_margin="15dp"
                 android:textSize="20sp"
@@ -504,6 +415,7 @@
                                 android:textSize="16sp"/>
 
                             <TextView
+                                android:id="@+id/contrast_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Normal"

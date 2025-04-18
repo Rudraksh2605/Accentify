@@ -53,5 +53,6 @@
     <color name="button_pressed">#E3F2FD</color>
     <color name="progress_background">#E0E0E0</color>
     <color name="progress_foreground">#4CAF50</color>
+    <color name="red">#F44336</color>
 
 </resources>

@@ -106,26 +106,49 @@
                 android:layout_marginTop="16dp"
                 />
 
-            <!-- Question Card -->
-            <androidx.cardview.widget.CardView
+            <!-- Question Card with Speaker Button -->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
+                android:layout_marginBottom="24dp">
 
-                <TextView
-                    android:id="@+id/questionTextView"
-                    android:layout_width="wrap_content"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="How do you say 'Hello' in Spanish?"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:lineSpacingExtra="4dp"/>
-            </androidx.cardview.widget.CardView>
+                    android:layout_margin="12dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/questionTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/speakerButton"
+                            android:layout_toStartOf="@+id/speakerButton"
+                            android:text="How do you say 'Hello' in Spanish?"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:lineSpacingExtra="4dp"/>
+
+                        <ImageButton
+                            android:id="@+id/speakerButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_speaker"
+                            android:contentDescription="Play question audio"/>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
             <!-- Options -->
             <GridLayout

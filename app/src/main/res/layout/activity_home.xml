@@ -408,4 +408,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="15dp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chatbot_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_nav"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="Chatbot"
+        android:src="@drawable/ic_chat"
+        app:backgroundTint="@color/LoginBtn"
+        app:tint="@color/white"
+        app:elevation="8dp"/>
 </RelativeLayout>
